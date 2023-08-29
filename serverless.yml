@@ -1,0 +1,27 @@
+service: aws-crud-serverless
+frameworkVersion: '3'
+
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 128
+  region: ap-south-1
+  stage: ${opt:stage,'dev'}
+
+
+functions:
+  api:
+    handler: index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+  createUser:
+    handler: src/handlers/createUsers.handler     
+    events:
+      - httpApi:
+          path: /users
+          method: post       
