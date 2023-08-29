@@ -24,4 +24,16 @@ functions:
     events:
       - httpApi:
           path: /users
-          method: post       
+          method: post 
+  getAll:
+    handler: src/handlers/getAll.handler 
+    events:
+      - httpApi:
+          path: /users
+          method: get   
+  getUser:
+    handler: src/handlers/getUser.handler 
+    events:
+      - httpApi:
+          path: /users/{email}
+          method: get                         
