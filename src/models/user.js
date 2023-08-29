@@ -16,8 +16,8 @@ const UserSchema = new mongoose.Schema({
     password:{
         type:String,
         required:[true,'Please set a password'],
-        uminLength: 6,
-        select: false,
+        minLength: 6,
+        select: false,    //this will not return from the doc while using find() method
     }
 })
 //Before saving the password into mongoDB, let's hash it
