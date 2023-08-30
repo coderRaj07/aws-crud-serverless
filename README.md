@@ -1,92 +1,68 @@
-<!--
-title: 'AWS Simple HTTP Endpoint example in NodeJS'
-description: 'This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.'
-layout: Doc
-framework: v3
-platform: AWS
-language: nodeJS
-authorLink: 'https://github.com/serverless'
-authorName: 'Serverless, inc.'
-authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4'
--->
+## AWS CRUD Serverless App
+This repository contains a simple CRUD (Create, Read, Update, Delete) application deployed using the Serverless framework on AWS. The application allows you to manage user records through a set of API endpoints.
 
-# Serverless Framework Node HTTP API on AWS
+## Getting Started
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes.
 
-This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.
+## Prerequisites
+Node.js and npm
+AWS Account
+Serverless CLI
 
-This template does not include any kind of persistence (database). For more advanced examples, check out the [serverless/examples repository](https://github.com/serverless/examples/) which includes Typescript, Mongo, DynamoDB and other examples.
+## Installing
+Clone the repository:
 
-## Usage
+`git clone https://github.com/coderRaj07/aws-crud-serverless`
+`cd aws-crud-serverless`
 
-### Deployment
+## Install the project dependencies:
+`npm install`
 
-```
-$ serverless deploy
-```
+## Create a .env file in the root of the project and set the required environment variable:
+`DB=<your-database-connection-string>`
 
-After deploying, you should see output similar to:
+## Deployment
+To deploy the application to AWS Lambda and API Gateway using Serverless, follow these steps:
 
-```bash
-Deploying aws-node-http-api-project to stage dev (us-east-1)
+Make sure you have the AWS credentials properly configured either through environment variables or AWS CLI.
 
-✔ Service deployed to stack aws-node-http-api-project-dev (152s)
+Deploy the application using Serverless:
+`serverless deploy`
 
-endpoint: GET - https://xxxxxxxxxx.execute-api.us-east-1.amazonaws.com/
-functions:
-  hello: aws-node-http-api-project-dev-hello (1.9 kB)
-```
+This will package and deploy your application to AWS Lambda and API Gateway.
 
-_Note_: In current form, after deployment, your API is public and can be invoked by anyone. For production deployments, you might want to configure an authorizer. For details on how to do that, refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/).
-
-### Invocation
-
-After successful deployment, you can call the created application via HTTP:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/
-```
-
-Which should result in response similar to the following (removed `input` content for brevity):
-
-```json
-{
-  "message": "Go Serverless v2.0! Your function executed successfully!",
-  "input": {
-    ...
-  }
-}
-```
-
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
-```
-{
-  "statusCode": 200,
-  "body": "{\n  \"message\": \"Go Serverless v3.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
-```
+Once the deployment is successful, you will receive a list of endpoints that you can use to interact with the application.
 
 
-Alternatively, it is also possible to emulate API Gateway and Lambda locally by using `serverless-offline` plugin. In order to do that, execute the following command:
+## To test this Application
+✔ Service deployed to stack aws-crud-serverless-dev to stage dev (ap-south-1)
 
-```bash
-serverless plugin install -n serverless-offline
-```
+## Endpoints:
+  GET - https://6vh5xz3umd.execute-api.ap-south-1.amazonaws.com/
+  POST - https://6vh5xz3umd.execute-api.ap-south-1.amazonaws.com/users
+  GET - https://6vh5xz3umd.execute-api.ap-south-1.amazonaws.com/users
+  GET - https://6vh5xz3umd.execute-api.ap-south-1.amazonaws.com/users/{email}
 
-It will add the `serverless-offline` plugin to `devDependencies` in `package.json` file as well as will add it to `plugins` in `serverless.yml`.
+## Functions in AWS:
+  api: aws-crud-serverless-dev-api (35 MB)
+  createUser: aws-crud-serverless-dev-createUser (35 MB)
+  getAll: aws-crud-serverless-dev-getAll (35 MB)
+  getUser: aws-crud-serverless-dev-getUser (35 MB)
 
-After installation, you can start local emulation with:
+## Functions
+The following AWS Lambda functions are included in the deployment:
 
-```
-serverless offline
-```
+api - The main API handler.
+createUser - Handles user creation.
+getAll - Handles retrieving all users.
+getUser - Handles retrieving a specific user by email.
 
-To learn more about the capabilities of `serverless-offline`, please refer to its [GitHub repository](https://github.com/dherault/serverless-offline).
+## Built With
+Node.js
+Serverless Framework
+AWS Lambda
+Amazon API Gateway
+MongoDB
+
+## Author
+Rajendra Bisoi
