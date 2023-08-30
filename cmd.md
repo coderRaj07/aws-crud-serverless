@@ -2,7 +2,7 @@ npm i -g serverless
 sls config credentials -h
 
 # provider aws, accesskey and secret key taken from IAM user
-sls config credentials -p aws -k AKIAT32QDSOQEKH3PDHW -s UjNq+m7hrE+AGiOVeEfTdLWU95P01H7m7yMCY1jJ -n aws_crud_serverless
+sls config credentials -p aws -k <AWS_ACCESS_KEY> -s <AWS_SECRET_KEY> -n aws_crud_serverless
 
 # check credentials
 cat ~/.aws/credentials
