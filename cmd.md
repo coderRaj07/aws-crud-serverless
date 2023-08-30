@@ -1,6 +1,8 @@
 npm i -g serverless
 sls config credentials -h
 
+# In IAM only give "AdminstratorFullAccess" not other access to user to avoid potntial errors
+
 # provider aws, accesskey and secret key taken from IAM user
 sls config credentials -p aws -k <AWS_ACCESS_KEY> -s <AWS_SECRET_KEY> -n aws_crud_serverless
 
